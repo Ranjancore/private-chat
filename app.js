@@ -190,4 +190,13 @@ supabaseClient.auth.onAuthStateChange((event, session) => {
       });
     }
   }
+});window.addEventListener("pagehide", async () => {
+  try {
+    await supabaseClient
+      .from("messages")
+      .delete()
+      .not("read_at", "is", null);
+  } catch (error) {
+    console.log("Read messages cleanup:", error);
+  }
 });
