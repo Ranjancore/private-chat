@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Private Chat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section id="loginView" class="card">
+      <h1>Private Chat</h1>
+      <p class="muted">This room is for two authorized accounts.</p>
+
+      <label>Email</label>
+      <input id="email" type="email" autocomplete="username" placeholder="Your email">
+
+      <label>Password</label>
+      <input id="password" type="password" autocomplete="current-password" placeholder="Password">
+
+      <button id="loginBtn">Login</button>
+      <p id="loginMsg" class="error"></p>
+    </section>
+
+    <section id="chatView" class="chat hidden">
+      <header class="topbar">
+        <div>
+          <h2>Our Chat</h2>
+          <small id="userLabel"></small>
+        </div>
+        <button id="logoutBtn" class="ghost">Logout</button>
+      </header>
+
+      <div id="messages" class="messages"></div>
+
+      <form id="sendForm" class="composer">
+        <input id="messageInput" maxlength="2000" autocomplete="off"
+               placeholder="Type a message..." required>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
